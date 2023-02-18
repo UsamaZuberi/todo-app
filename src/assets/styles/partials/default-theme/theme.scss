@@ -1,0 +1,34 @@
+// Body
+$bodyColor: #ffffff;
+
+// Theme
+$primaryColor: #1e8fff;
+
+//Transitions
+$transition-short: 0.2s;
+$transition: 0.4s;
+$transition-long: 0.6s;
+
+// Miscellaneous
+$primaryTextColor: #090b17;
+$greyTextColor: #979797;
+$greyColor: #cbcbcb;
+
+// Spacing & Gaps
+$gap: 25px;
+
+$theme: () !default;
+$theme: map-merge(
+  (
+    "bodyColor": $bodyColor,
+    "primaryColor": $primaryColor,
+    "primaryTextColor": $primaryTextColor,
+    "greyTextColor": $greyTextColor,
+    "greyColor": $greyColor,
+    "transition-short": $transition-short,
+    "transition": $transition,
+    "transition-long": $transition-long,
+    "gap": $gap,
+  ),
+  $theme
+);

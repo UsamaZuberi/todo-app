@@ -1,0 +1,8 @@
+@import "./theme";
+
+:root {
+  // Custom variable values only support SassScript inside `#{}`.
+  @each $color, $value in $theme {
+    --#{$color}: #{$value};
+  }
+}
