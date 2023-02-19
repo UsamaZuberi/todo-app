@@ -3,6 +3,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import Home from "./pages/Home";
+import SignIn from "pages/SignIn";
+import SignUp from "pages/SignUp";
 import store from "./store/store";
 
 function App() {
@@ -11,7 +13,9 @@ function App() {
       <div className="main">
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route exact path="/" element={<Home />} />
           </Routes>
         </Router>
       </div>

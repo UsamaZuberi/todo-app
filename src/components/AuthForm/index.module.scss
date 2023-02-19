@@ -1,0 +1,60 @@
+@import "../../assets/styles/partials/theme";
+
+.authScreen {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrapper {
+    width: 480px;
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 90vh;
+    padding: 25px 25px;
+    border: 1px solid var(--borderColor);
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-family: var(--font-family-1);
+    font-weight: 700;
+    line-height: 1.6em;
+    color: var(--primaryTextColor);
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-family: var(--font-family-1);
+    font-weight: 400;
+    line-height: 1.6em;
+    color: var(--darkGreyColor);
+    text-align: center;
+
+    & a {
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      white-space: nowrap;
+      color: var(--primaryColor);
+    }
+  }
+
+  &__form {
+    padding: 20px 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  &__formGroup {
+    width: 100%;
+  }
+}

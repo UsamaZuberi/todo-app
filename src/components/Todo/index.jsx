@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 import styles from "./index.module.scss";
 import Task from "components/Task";
+import Button from "components/Button";
+import Input from "components/Input";
 
 // Utility Functions
 import { guid } from "utils/inputValidations";
@@ -33,13 +35,7 @@ const Todo = () => {
       setTodoInputValue("");
     } else {
     }
-  };
-
-  const handleKeyDown = ({ keyCode }) => {
-    if (keyCode === 13) {
-      createTodo();
-    }
-  };
+  }; 
 
   useEffect(() => {
     let completedTasks = 0;
@@ -89,22 +85,21 @@ const Todo = () => {
 
         <div className={styles.todo__taskInput}>
           <div className={styles.todo__input}>
-            <input
+            <Input
               type="text"
+              name="taskInput"
               value={todoInputValue}
-              onChange={todoChangeHandler}
-              onKeyDown={handleKeyDown}
+              changeHandler={todoChangeHandler}
             />
           </div>
           
           <div className={styles.todo__cta}>
-            <button
+            <Button
               type="button"
-              onClick={createTodo}
+              title="Add Task"
+              clickHandler={createTodo}
               disabled={!todoInputValue}
-            >
-              Add Task
-            </button>
+            />
           </div>
         </div>
       </div>

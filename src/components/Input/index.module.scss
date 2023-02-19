@@ -1,0 +1,23 @@
+.input {
+  // Reset
+  appearance: none;
+  border: none;
+  outline: none;
+
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  font-family: var(--font-family-1);
+  font-weight: 400;
+  line-height: 1.3em;
+  color: var(--primaryTextColor);
+  padding: 10px 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid var(--primaryTextColor);
+  transition: border var(--transition-short) linear;
+
+  &:focus-within {
+    border: 2px solid var(--primaryColor);
+  }
+}
