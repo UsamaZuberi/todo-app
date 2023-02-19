@@ -5,6 +5,7 @@ export const validateEmail = (email) => {
   return String(email)
     .toLowerCase()
     .match(
+      // eslint-disable-next-line
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 };
@@ -15,8 +16,8 @@ export const validateEmail = (email) => {
 /* ------------------------------------------------------------------------- */
 export const validatePassword = (password) => {
   // Min 8 letter password, with at least a symbol, upper and lower case letters and a number
-  // eslint-disable-next-line
   const regularExp =
+  // eslint-disable-next-line
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\^$*.\[\]{}\(\)?\-\"!@#%&\/,><\':;|_~`=+\\])\S{8,99}$/;
   return regularExp.test(password);
 };

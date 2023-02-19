@@ -1,1 +1,11 @@
+@import "../../assets/styles/partials/mixins";
 
+.topBar {
+  width: 100%;
+  padding: 20px 0;
+  text-align: right;
+
+  &__button {
+    @include fitContent();
+  }
+}

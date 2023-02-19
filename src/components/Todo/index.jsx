@@ -35,7 +35,7 @@ const Todo = () => {
       setTodoInputValue("");
     } else {
     }
-  }; 
+  };
 
   useEffect(() => {
     let completedTasks = 0;
@@ -90,9 +90,10 @@ const Todo = () => {
               name="taskInput"
               value={todoInputValue}
               changeHandler={todoChangeHandler}
+              submitHandler={createTodo}
             />
           </div>
-          
+
           <div className={styles.todo__cta}>
             <Button
               type="button"

@@ -7,11 +7,12 @@ const Input = ({
   value = "",
   placeholder = "",
   changeHandler,
+  submitHandler
 }) => {
   const handleKeyDown = (event) => {
-    const { keyCode } = event.target;
+    const { keyCode } = event;
     if (keyCode === 13) {
-      changeHandler(event);
+      submitHandler && submitHandler();
     }
   };
 
