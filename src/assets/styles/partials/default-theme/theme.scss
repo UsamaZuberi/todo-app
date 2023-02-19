@@ -3,6 +3,7 @@ $bodyColor: #ffffff;
 
 // Theme
 $primaryColor: #1e8fff;
+$primaryContrastColor: #0067cd;
 
 //Transitions
 $transition-short: 0.2s;
@@ -17,11 +18,15 @@ $greyColor: #cbcbcb;
 // Spacing & Gaps
 $gap: 25px;
 
+// Font Family
+$font-family-1: 'Poppins';
+
 $theme: () !default;
 $theme: map-merge(
   (
     "bodyColor": $bodyColor,
     "primaryColor": $primaryColor,
+    "primaryContrastColor": $primaryContrastColor,
     "primaryTextColor": $primaryTextColor,
     "greyTextColor": $greyTextColor,
     "greyColor": $greyColor,
@@ -29,6 +34,7 @@ $theme: map-merge(
     "transition": $transition,
     "transition-long": $transition-long,
     "gap": $gap,
+    "font-family-1": $font-family-1,
   ),
   $theme
 );

@@ -1,10 +1,11 @@
 import React from "react";
+import Todo from "components/Todo";
 
 const Home = () => {
   return (
     <div className="container">
       <section className="section">
-        Hello World
+        <Todo />
       </section>
     </div>
   );

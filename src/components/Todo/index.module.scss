@@ -1,0 +1,132 @@
+.todo {
+  &__wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+
+  &__heading {
+    font-size: 36px;
+    font-family: var(--font-family-1);
+    font-weight: 700;
+    line-height: 1.3em;
+    color: var(--primaryTextColor);
+    text-align: center;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 35px 0;
+
+    width: 70%;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  //   &__listItem {}
+
+  &__taskInput {
+    width: 100%;
+    padding-top: 20px;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -5px -5px;
+
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+
+    & > * {
+      padding: 5px 5px;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    max-width: 400px;
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    & input {
+      // Reset
+      appearance: none;
+      border: none;
+      outline: none;
+
+      display: inline-block;
+      width: 100%;
+      font-size: 16px;
+      font-family: var(--font-family-1);
+      font-weight: 400;
+      line-height: 1.3em;
+      color: var(--primaryTextColor);
+      padding: 10px 15px;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 2px solid var(--primaryTextColor);
+      transition: border var(--transition-short) linear;
+
+      &:focus-within {
+        border: 2px solid var(--primaryColor);
+      }
+    }
+  }
+
+  &__cta {
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+
+    button {
+      // Reset
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      outline: none;
+      border: none;
+      background-color: transparent;
+
+      // Styles
+      width: 100%;
+      font-size: 16px;
+      font-family: var(--font-family-1);
+      font-weight: 400;
+      line-height: 1.3em;
+      text-align: center;
+      color: #fff;
+      padding: 10px 15px;
+      background-color: var(--primaryColor);
+      border-radius: 5px;
+      border: 2px solid var(--primaryColor);
+      background-color: var(--primaryColor);
+      transition: border var(--transition-short) linear,
+        background-color var(--transition-short) linear;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+        cursor: pointer;
+        border: 2px solid var(--primaryContrastColor);
+        background-color: var(--primaryContrastColor);
+      }
+    }
+  }
+}

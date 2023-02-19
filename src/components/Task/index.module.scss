@@ -1,0 +1,138 @@
+.task {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 28px 1fr 36px;
+    gap: 15px;
+  }
+
+  &__checkbox {
+
+    &__input {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      z-index: 0;
+      opacity: 0;
+
+      &:checked {
+        & + .task__checkbox__label {
+          color: var(--primaryColor);
+
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+
+      &:disabled {
+        & + .task__checkbox__label {
+          color: var(--lightGreyColor);
+
+          &::before {
+            background-color: var(--greyTextColor);
+          }
+
+          &::after {
+            opacity: 1;
+            content: url("../../assets/svgs/check-disabled.svg");
+          }
+        }
+      }
+    }
+
+    &__label {
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 24px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: 24px;
+        height: 24px;
+        user-select: none;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+
+        color: inherit;
+        background-color: var(--bodyColor);
+        border: 2px solid currentColor;
+        border-radius: 5px;
+        transition: border-color var(--transition-short) linear;
+
+        outline: none;
+        cursor: pointer;
+      }
+
+      &::after {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: url("../../assets/svgs/check.svg");
+
+        opacity: 0;
+        color: inherit;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: opacity var(--transition-short) linear;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    line-height: 1.375em;
+    color: var(--primaryTextColor);
+  }
+
+  &__cta {
+    button {
+      // Reset
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      outline: none;
+      border: none;
+      background-color: transparent;
+
+      // Styles
+      width: 36px;
+      height: 36px;
+      font-size: 22px;
+      color: var(--primaryTextColor);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--greyColor);
+      transition: color var(--transition-short) linear,
+        background-color var(--transition-short) linear;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        background-color: var(--primaryColor);
+      }
+
+      span {
+        font-size: inherit;
+        color: inherit;
+      }
+    }
+  }
+}
