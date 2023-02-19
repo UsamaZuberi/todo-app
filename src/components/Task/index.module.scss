@@ -95,6 +95,10 @@
     font-weight: 500;
     line-height: 1.375em;
     color: var(--primaryTextColor);
+
+    &--completed {
+      text-decoration: line-through;
+    }
   }
 
   &__cta {

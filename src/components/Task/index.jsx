@@ -38,7 +38,7 @@ const Task = ({ taskInfo }) => {
           ></label>
         </div>
 
-        <p className={styles.task__title} title={taskInfo.title}>
+        <p className={`${styles.task__title} ${taskInfo.isCompleted ? styles['task__title--completed'] : ''}`} title={taskInfo.title}>
           {taskInfo.title}
         </p>
 
