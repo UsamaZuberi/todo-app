@@ -2,48 +2,51 @@ import React, { useState, useEffect, Fragment } from "react";
 import styles from "./index.module.scss";
 import Task from "components/Task";
 
+// Utility Functions
+import { guid } from "utils/inputValidations";
+
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo } from "store/features/todoList/todoListSlice";
+
 const Todo = () => {
+  const dispatch = useDispatch();
+  const todoListState = useSelector((state) => state.todoList);
+
   const [tasksCompleted, setTasksCompleted] = useState(0);
-  const [taskList, setTaskList] = useState([
-    {
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus obcaecati minus consectetur cum, veniam odio.",
-      isCompleted: true,
-    },
-    {
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus obcaecati minus consectetur cum, veniam odio.",
-      isCompleted: false,
-    },
-    {
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus obcaecati minus consectetur cum, veniam odio.",
-      isCompleted: false,
-    },
-    {
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus obcaecati minus consectetur cum, veniam odio.",
-      isCompleted: false,
-    },
-    {
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus obcaecati minus consectetur cum, veniam odio.",
-      isCompleted: false,
-    },
-  ]);
+  const [todoInputValue, setTodoInputValue] = useState("");
+
+  const todoChangeHandler = ({ target }) => {
+    setTodoInputValue(target.value);
+  };
+
+  const createTodo = () => {
+    if (todoInputValue) {
+      dispatch(
+        addTodo({
+          id: guid(),
+          title: todoInputValue,
+          isCompleted: false,
+        })
+      );
+
+      setTodoInputValue("");
+    } else {
+    }
+  };
 
   useEffect(() => {
     let completedTasks = 0;
 
-    taskList.length &&
-      taskList.forEach((task) => {
+    todoListState.length &&
+      todoListState.forEach((task) => {
         if (task.isCompleted) {
           completedTasks += 1;
         }
       });
 
     setTasksCompleted(completedTasks);
-  }, [taskList]);
+  }, [todoListState]);
 
   return (
     <div className={styles.todo}>
@@ -53,19 +56,23 @@ const Todo = () => {
         <hr />
 
         <ul className={styles.todo__list}>
-          {taskList.length ? (
+          {todoListState.length ? (
             <Fragment>
-              {taskList.map((task) => {
+              {todoListState.map((task) => {
                 return (
-                  <li className={styles.todo__listItem}>
-                    <Task title={task.title} isCompleted={task.isCompleted} />
+                  <li key={task.id} className={styles.todo__listItem}>
+                    <Task taskInfo={task} />
                   </li>
                 );
               })}
             </Fragment>
           ) : (
             <Fragment>
-              <li>Add a todo to get started...</li>
+              <li className={styles.todo__listItem}>
+                <p className={styles.todo__noDataFound}>
+                  Add a todo task to get started...
+                </p>
+              </li>
             </Fragment>
           )}
         </ul>
@@ -76,10 +83,20 @@ const Todo = () => {
 
         <div className={styles.todo__taskInput}>
           <div className={styles.todo__input}>
-            <input type="text" />
+            <input
+              type="text"
+              value={todoInputValue}
+              onChange={todoChangeHandler}
+            />
           </div>
           <div className={styles.todo__cta}>
-            <button type="button">Add Task</button>
+            <button
+              type="button"
+              onClick={createTodo}
+              disabled={!todoInputValue}
+            >
+              Add Task
+            </button>
           </div>
         </div>
       </div>

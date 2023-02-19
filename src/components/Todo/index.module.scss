@@ -20,6 +20,19 @@
     }
   }
 
+  &__noDataFound {
+    font-size: 22px;
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    line-height: 1.3em;
+    color: var(--greyTextColor);
+    text-align: center;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
   &__list {
     display: grid;
     grid-template-columns: 1fr;
@@ -126,6 +139,12 @@
         cursor: pointer;
         border: 2px solid var(--primaryContrastColor);
         background-color: var(--primaryContrastColor);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        border: 2px solid var(--greyColor);
+        background-color: var(--greyColor);
       }
     }
   }
