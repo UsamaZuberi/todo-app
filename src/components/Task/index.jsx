@@ -1,24 +1,7 @@
 import React from "react";
 import styles from "./index.module.scss";
 
-// Redux
-import { useDispatch } from "react-redux";
-import {
-  deleteTodo,
-  toggleTodoStatus,
-} from "store/features/todoList/todoListSlice";
-
-const Task = ({ taskInfo }) => {
-  const dispatch = useDispatch();
-
-  const checkboxHandler = () => {
-    dispatch(toggleTodoStatus(taskInfo.id));
-  };
-
-  const removeTodo = () => {
-    dispatch(deleteTodo(taskInfo.id));
-  };
-
+const Task = ({ taskInfo, updateTodo, deleteTodo }) => {
   return (
     <div className={styles.task}>
       <div className={styles.task__wrapper}>
@@ -28,7 +11,7 @@ const Task = ({ taskInfo }) => {
             type="checkbox"
             className={styles.task__checkbox__input}
             checked={taskInfo.isCompleted}
-            onChange={checkboxHandler}
+            onChange={() => updateTodo(taskInfo.id)}
             hidden
           />
 
@@ -43,7 +26,7 @@ const Task = ({ taskInfo }) => {
         </p>
 
         <div className={styles.task__cta}>
-          <button type="button" onClick={removeTodo}>
+          <button type="button" onClick={()=> deleteTodo(taskInfo.id)}>
             <span>&times;</span>
           </button>
         </div>

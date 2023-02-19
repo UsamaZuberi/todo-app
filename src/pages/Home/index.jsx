@@ -30,6 +30,7 @@ const Home = () => {
     });
 
     return unSubscribe;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

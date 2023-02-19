@@ -30,6 +30,7 @@ const AuthForm = ({ variant }) => {
     });
 
     return unSubscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const inputChangeHandler = (event) => {
