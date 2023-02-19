@@ -35,6 +35,12 @@ const Todo = () => {
     }
   };
 
+  const handleKeyDown = ({ keyCode }) => {
+    if (keyCode === 13) {
+      createTodo();
+    }
+  };
+
   useEffect(() => {
     let completedTasks = 0;
 
@@ -87,8 +93,10 @@ const Todo = () => {
               type="text"
               value={todoInputValue}
               onChange={todoChangeHandler}
+              onKeyDown={handleKeyDown}
             />
           </div>
+          
           <div className={styles.todo__cta}>
             <button
               type="button"
